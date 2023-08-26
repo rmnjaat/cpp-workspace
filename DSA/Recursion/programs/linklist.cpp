@@ -3,61 +3,161 @@ using namespace std;
 class Node
 {
 public:
-    int a;
+    int data;
     Node *next = nullptr;
+    static int count;
 
 public:
-    Node(int n){
-        a = n;
-        next =nullptr;
-        }
-    ~Node(){
-    //    cout<<"Destructor called ." << this->a<<endl;
-    // Node * current = this->next;
-    //    delete next;
-    //    next =NULL; 
+    Node(int n)
+    {
+        data = n;
+        next = nullptr;
+        count++;
     }
+    ~Node() {}
+    // friend void print();
+    // friend void Insert_at_begning(int );
 };
 
-    void print(Node * head){
-        int count=0;
-        Node *temp =head;
-        while(temp!=NULL){
-            // cout<<temp->a<<"  "<<endl;
-            temp=temp->next;
-            count++;
+int Node::count = 0;
 
-        }
+Node *HEAD = nullptr;
 
-        Node*temp2 = head;
-        for(int i=0;i<(count/2);i++){
-            temp2=temp2->next;
+// void print_linklist()
+// {
+//     Node *temp = HEAD;
+//     cout << "Linklist is ";
+//     while (temp != NULL)
+//     {
+//         cout << temp->data << "  ";
+//         temp = temp->next;
+//     }
+//     cout << endl;
+// }
 
-        }
 
-        cout<<temp2->a;
+
+//printting through recursion
+
+void recprint(Node * p){
+    if(p==NULL) return;
+    cout<<p->data<<" ";    // for reverse print, put it one line below 
+    recprint(p->next);
+}
+
+void recreverse(Node * p){
+    if(p->next == NULL) {
+        HEAD=p;
+        return;
+    }
+    // cout<<p->data<<" ";    // for reverse print, put it one line below 
+    recprint(p->next);
+    Node * q=p->next;
+    q->next=p;
+    p->next=NULL;
+}
+void Insert_at_begning(int a)
+{
+
+    // int a;
+    // cout << "Enter value you want to insert at begning ";
+    // cin >> a;
+
+    Node *temp = new Node(a);
+    // temp->data=a;
+    temp->next = HEAD;
+    HEAD = temp;
+}
+
+void NthInsertion(int a, int pos)
+{
+
+    if (pos < 1 || pos > Node::count+1)
+    {
+        cout << "Invalid position" << endl;
+        return;
     }
 
-int main(){
+    if (pos == 1)
+    {
+        Insert_at_begning(a);
+        return;
+    }
 
-    Node d(20);
-    Node e(30);
-    Node f(40);
-    Node g(50);
-    Node h(60);
-    d.next=&e;
-    e.next=&f;
-    f.next=&g;
-    g.next=&h;
+    Node *temp = new Node(a);
+    Node *initial = HEAD;
 
-    print(&d);
+    for (int i{}; i < pos - 2; i++)
+    {
+        initial = initial->next;   //n-1
+    }
 
-    
-
-
+    temp->next = initial->next;  // setting nth->next = n+1next;
+    initial->next = temp;   // n-1 = n
 }
 
 
+void Deletnth(int pos){
+    Node *temp=HEAD;
+    
+    if(pos==1){
+        HEAD=temp->next; 
+        delete temp;
+        Node::count--;
+        return;
+    }
+
+    for(int i=0;i<pos-2;i++){
+        temp=temp->next;     //n-1 node
+    }
+        Node::count--;
+    Node *tempnth=temp->next;   //nth node
+    temp->next=tempnth->next;   //n+1 node
+
+    delete tempnth; 
+}
 
 
+void reverselinklist(){
+    Node * current;  
+    Node * prev; 
+    Node * Nxt; 
+    current=HEAD;
+    prev=NULL;
+    Nxt=NULL;
 
+    while(current != NULL){
+        Nxt=current->next;
+
+        current->next=prev;
+
+        prev=current;
+
+        current=Nxt;
+
+    }
+    HEAD=prev;
+}
+
+
+int main()
+{
+    NthInsertion(99, 1);
+    
+    NthInsertion(90, 2);
+    NthInsertion(88, 3);
+
+    Insert_at_begning(77);
+
+    NthInsertion(100, 5);
+    // print_linklist();
+    recprint(HEAD);
+
+    // Deletnth(1);
+    // Deletnth(Node::count);
+    // Deletnth(3);
+
+    // reverselinklist();
+    // print_linklist();
+
+}
