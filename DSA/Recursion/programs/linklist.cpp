@@ -155,8 +155,9 @@ int main()
 
     // Deletnth(1);
     // Deletnth(Node::count);
-    // Deletnth(3);
+    Deletnth(5);
 
+    recprint(HEAD);
     // reverselinklist();
     // print_linklist();
 
