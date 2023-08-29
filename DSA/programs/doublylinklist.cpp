@@ -128,6 +128,12 @@ void printlinklist()
     cout << endl;
 }
 
+void recprint(Node * temp){
+    if(temp==NULL) return;
+    recprint(temp->next);
+    cout<<temp->data<<" ";
+}
+
 int main()
 {
     // Insertathead(5);
@@ -136,9 +142,11 @@ int main()
     insertNth(104, 3);
     insertNth(108, 2);
     printlinklist();
-    DeleteNode(1);
-    printlinklist();
-    DeleteNode(3);
-    printlinklist();
+    // DeleteNode(1);
+    // printlinklist();
+    // DeleteNode(3);
+    // printlinklist();
+
+    recprint(HEAD);
 
 }

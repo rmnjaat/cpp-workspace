@@ -56,6 +56,7 @@ void recreverse(Node * p){
     q->next=p;
     p->next=NULL;
 }
+
 void Insert_at_begning(int a)
 {
 
