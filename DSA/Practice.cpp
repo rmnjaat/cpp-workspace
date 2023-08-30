@@ -65,25 +65,25 @@
 // }
 
 
-// #include<iostream>
-// #include<iomanip>
-// using namespace std;
+#include<iostream>
+#include<iomanip>
+using namespace std;
 
-// void removex(string& p,int i ){
-//     if(p[i]=='\0') return;
+void removex(string& p,int i ){
+    if(p[i]=='\0') return;
     
-//     if(p[i]=='x'){
-//         p.erase(i,1);
-//     }
-//     removex(p,i+1);
+    if(p[i]=='x'){
+        p.erase(i,1);
+    }
+    removex(p,i+1);
 
-// }
+}
 
 
-// int main(){
+int main(){
 
-// string s="rxmxn";
-// removex(s,0);
-// cout<<s;
+string s="rxmxn";
+removex(s,0);
+cout<<s;
 
-// }
+}
