@@ -65,25 +65,42 @@
 // }
 
 
+// #include<iostream>
+// #include<iomanip>
+// using namespace std;
+
+// void removex(string& p,int i ){
+//     if(p[i]=='\0') return;
+    
+//     if(p[i]=='x'){
+//         p.erase(i,1);
+//     }
+//     removex(p,i+1);
+
+// }
+
+
+// int main(){
+
+// string s="rxmxn";
+// removex(s,0);
+// cout<<s;
+
+// }
+
+
 #include<iostream>
-#include<iomanip>
 using namespace std;
 
-void removex(string& p,int i ){
-    if(p[i]=='\0') return;
-    
-    if(p[i]=='x'){
-        p.erase(i,1);
-    }
-    removex(p,i+1);
+int bin(int n){
+    if(n==0) return 0;
 
+   return n%2+10*(bin(n/2));
 }
 
-
 int main(){
+int a;
+cin>>a;
 
-string s="rxmxn";
-removex(s,0);
-cout<<s;
-
+cout<<bin(a);
 }
