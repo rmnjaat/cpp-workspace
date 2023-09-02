@@ -11,14 +11,14 @@ int main(){
     //cap=2
     v.push_back(3);
     //cap=6
-    // cout<<v.capacity();
-    // cout<<endl;
-    // cout<<v.size();
-    // cout<<endl;
-    // cout<<v.front();
-    //// gives front and back element
-    // cout<<endl;
-    // cout<<v.back();
+    cout<<v.capacity();
+    cout<<endl;
+    cout<<v.size();
+    cout<<endl;
+    cout<<v.front();
+    // gives front and back element
+    cout<<endl;
+    cout<<v.back();
     cout<<endl<<"before pop"<<endl;
     for(int i:v){
         cout<<i;
@@ -30,6 +30,8 @@ int main(){
         cout<<i;
     }
     cout<<endl;
+    auto v1=v.begin()+1;
+    cout<<*v1;
 
 }
 
