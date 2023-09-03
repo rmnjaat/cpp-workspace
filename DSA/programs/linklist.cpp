@@ -152,11 +152,12 @@ int main()
 
     NthInsertion(100, 5);
     // print_linklist();
-    recprint(HEAD);
+    // recprint(HEAD);
 
     // Deletnth(1);
     // Deletnth(Node::count);
-    Deletnth(5);
+    // Deletnth(5);
+    Deletnth(9);
 
     recprint(HEAD);
     // reverselinklist();
