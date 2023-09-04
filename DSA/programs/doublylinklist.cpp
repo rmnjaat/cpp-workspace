@@ -97,23 +97,29 @@ void DeleteNode(int pos)
 
     Node *temp = HEAD;
 
-    if(pos==1){
-        HEAD=temp->next;
-         Node::count--;
-         delete temp;
+    if (pos == 1)
+    {
+        HEAD = temp->next;
+
+        Node::count--;
+
+        delete temp;
+
         return;
     }
-
-
 
     for (int i = 0; i < pos - 1; i++)
     {
         temp = temp->next;
     }
+
     (temp->prev)->next = temp->next;
-    if(temp->next!=NULL){
-    (temp->next)->prev = temp->prev;
+
+    if (temp->next != NULL)
+    {
+        (temp->next)->prev = temp->prev;
     }
+    delete temp;
     Node::count--;
 }
 
@@ -128,10 +134,12 @@ void printlinklist()
     cout << endl;
 }
 
-void recprint(Node * temp){
-    if(temp==NULL) return;
+void recprint(Node *temp)
+{
+    if (temp == NULL)
+        return;
     recprint(temp->next);
-    cout<<temp->data<<" ";
+    cout << temp->data << " ";
 }
 
 int main()
@@ -148,5 +156,4 @@ int main()
     // printlinklist();
 
     recprint(HEAD);
-
 }

@@ -120,6 +120,7 @@ void Deletnth(int pos){
 
 
 void reverselinklist(){
+
     Node * current;  
     Node * prev; 
     Node * Nxt; 
@@ -141,6 +142,58 @@ void reverselinklist(){
 }
 
 
+
+    
+Node* rev(Node* HeAD, int k,int c) {
+    // Write your code here.
+    if(HeAD==NULL){
+       return NULL;
+   }
+   
+   //reverse first k nodes
+   Node*neext=NULL;
+   Node*prev=NULL;
+   Node*curr=HeAD;
+   int count=0;
+   
+    if(c < k){
+        return HeAD;
+    }
+
+   while( curr!=NULL  && count < k ){
+       neext=curr->next;
+       curr->next=prev;
+       prev=curr;
+       curr=neext;
+       count++;
+    }
+   
+   
+   //recursion
+   if(neext!=NULL){
+       HeAD->next=rev(neext,k,c-k);
+   }
+   
+   
+   //step 3 return head of rev  list;
+   return prev;
+}
+
+
+Node* kReverse(Node* HeAD, int k) {
+
+  int c=0;
+  Node*temp=HeAD;
+  while(temp!=NULL){
+      temp=temp->next;
+      c++;
+  }
+
+  Node * r=rev(HeAD,k,c);
+  return r;
+}
+
+
 int main()
 {
     NthInsertion(99, 1);
@@ -148,7 +201,7 @@ int main()
     NthInsertion(90, 2);
     NthInsertion(88, 3);
 
-    Insert_at_begning(77);
+    NthInsertion(89,4);
 
     NthInsertion(100, 5);
     // print_linklist();
@@ -157,10 +210,15 @@ int main()
     // Deletnth(1);
     // Deletnth(Node::count);
     // Deletnth(5);
-    Deletnth(9);
+
 
     recprint(HEAD);
-    // reverselinklist();
-    // print_linklist();
+  Node*h2 =kReverse(HEAD,2);
+  //1 2 3 4 5
+  //2 1 4 3 5
+   cout<<endl;
+    recprint(h2);
 
 }
+
+
