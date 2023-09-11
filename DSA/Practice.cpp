@@ -1,6 +1,6 @@
 // #include <bits/stdc++.h>
 // using namespace std;
-  
+
 // int c(int b,int p)
 // {
 
@@ -9,7 +9,6 @@
 //     return b+c(b,p-1);
 // }
 
-
 // int main()
 // {
 //     int base,power;
@@ -17,7 +16,6 @@
 
 //     cout<<c(base,power);
 // }
-
 
 // #include<iostream>
 // using namespace std;
@@ -37,7 +35,6 @@
 //     return 0;
 // }
 
-
 // // You are using GCC
 // // // #include<iostream>
 // #include<iomanip>
@@ -55,15 +52,12 @@
 
 // }
 
-
 // int main(){
 
 //     int arr[7]={1,2,3,4,5,8,7};
 //     cout<<rec(arr,7,0);
-    
-    
-// }
 
+// }
 
 // #include<iostream>
 // #include<iomanip>
@@ -71,14 +65,13 @@
 
 // void removex(string& p,int i ){
 //     if(p[i]=='\0') return;
-    
+
 //     if(p[i]=='x'){
 //         p.erase(i,1);
 //     }
 //     removex(p,i+1);
 
 // }
-
 
 // int main(){
 
@@ -88,19 +81,25 @@
 
 // }
 
-
-#include<iostream>
+#include <iostream>
+#include<vector>
 using namespace std;
 
-int bin(int n){
-    if(n==0) return 0;
+int main()
+{
+    int n = 4;
+    int a[n] = {1, 2, 3, 4};
+   int s=0;
+   for(int i=0;i<n;i++){
+    for(int j=i;j<n;j++){
+        int sum=0;
+        for(int k=i;k<=j;k++){
+            sum+=a[k];
+        }
+        (sum>s?s=sum:s=s);
 
-   return n%2+10*(bin(n/2));
-}
+    }
+   }
 
-int main(){
-int a;
-cin>>a;
-
-cout<<bin(a);
+   cout<<s<<endl;
 }
