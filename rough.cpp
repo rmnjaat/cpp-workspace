@@ -46,32 +46,3 @@
 // }
 
 
-
-#include<iostream>
-using namespace std;
-
-void insertion_sort(int arr[],int n){
-    for(int i=1;i<n;i++){
-        int temp=arr[i];
-        int j=i-1;
-
-        while(j>=0 && arr[j]>temp){
-            arr[j+1]=arr[j];
-            j--;
-        }
-
-        arr[j+1]=temp;
-
-
-    }
-
-}
-
- int main(){
-    int a[]={1,8,6,7,23};
-
-    insertion_sort(a,5);
-    for(auto val:a){
-        cout<<val<<" ";
-    }
- }
