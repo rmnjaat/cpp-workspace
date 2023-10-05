@@ -1,3 +1,2 @@
-print();
-    // deletenode(7);
-    // print();
+  // insertatany(2,7);
+    // in

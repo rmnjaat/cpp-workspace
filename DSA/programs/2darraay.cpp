@@ -30,7 +30,7 @@ void insertToBottom(stack<int> S, int N)
     }
  
     while (!S.empty()) {
-        cout << S.top() << " ";
+        cout << S.top() << " "<<endl;
         S.pop();
     }
 }

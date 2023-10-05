@@ -22,7 +22,7 @@ void InsertatTAIL(int d, int x)
 {
     // assuminng data is present in list
     Node *temp = new Node(x);
-    if (TAIL == NULL)
+    if (TAIL == NULL) // first element
     {
         TAIL = temp;
         temp->next = temp;
@@ -81,24 +81,26 @@ void deleteNode(int x)
         prev->next = curr->next;
 
     //one node case
-        if(curr==prev){
+        if(curr==prev)
+        {
             TAIL=NULL;
         }
-
-
-        if(TAIL==curr){
+    // two node case
+        if(TAIL==curr)
+        {
             TAIL=curr->next;
         }
              
         curr->next = NULL;
         delete curr;
+
     }
 }
 
 int main()
 {
     InsertatTAIL(2, 3);
-    // InsertatTAIL(3, 5);
+    InsertatTAIL(3, 5);
     // InsertatTAIL(5, 7);
     // InsertatTAIL(3, 9);
 

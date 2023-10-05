@@ -50,9 +50,9 @@ void recreverse(Node * p){
         HEAD=p;
         return;
     }
-    // cout<<p->data<<" ";    // for reverse print, put it one line below 
+    // cout<<p->data<<" ";  
     recprint(p->next);
-    Node * q=p->next;
+    Node * q = p->next;
     q->next=p;
     p->next=NULL;
 }
@@ -203,7 +203,7 @@ int main()
 
     NthInsertion(89,4);
 
-    NthInsertion(100, 5);
+    // NthInsertion(100, 5);
     // print_linklist();
     // recprint(HEAD);
 
@@ -212,12 +212,15 @@ int main()
     // Deletnth(5);
 
 
+//     recprint(HEAD);
+//   Node*h2 =kReverse(HEAD,2);
+//   //1 2 3 4 5
+//   //2 1 4 3 5
+//    cout<<endl;
     recprint(HEAD);
-  Node*h2 =kReverse(HEAD,2);
-  //1 2 3 4 5
-  //2 1 4 3 5
-   cout<<endl;
-    recprint(h2);
+    reverselinklist();
+    cout<<endl;
+    recprint(HEAD);
 
 }
 
