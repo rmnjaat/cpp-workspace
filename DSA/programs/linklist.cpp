@@ -35,26 +35,28 @@ Node *HEAD = nullptr;
 //     cout << endl;
 // }
 
+// printting through recursion
 
-
-//printting through recursion
-
-void recprint(Node * p){
-    if(p==NULL) return;
-    cout<<p->data<<" ";    // for reverse print, put it one line below 
+void recprint(Node *p)
+{
+    if (p == NULL)
+        return;
+    cout << p->data << " "; // for reverse print, put it one line below
     recprint(p->next);
 }
 
-void recreverse(Node * p){
-    if(p->next == NULL) {
-        HEAD=p;
+void recreverse(Node *p)
+{
+    if (p->next == NULL)
+    {
+        HEAD = p;
         return;
     }
-    // cout<<p->data<<" ";  
+    // cout<<p->data<<" ";
     recprint(p->next);
-    Node * q = p->next;
-    q->next=p;
-    p->next=NULL;
+    Node *q = p->next;
+    q->next = p;
+    p->next = NULL;
 }
 
 void Insert_at_begning(int a)
@@ -73,7 +75,7 @@ void Insert_at_begning(int a)
 void NthInsertion(int a, int pos)
 {
 
-    if (pos < 1 || pos > Node::count+1)
+    if (pos < 1 || pos > Node::count + 1)
     {
         cout << "Invalid position" << endl;
         return;
@@ -90,72 +92,71 @@ void NthInsertion(int a, int pos)
 
     for (int i{}; i < pos - 2; i++)
     {
-        initial = initial->next;   //n-1
+        initial = initial->next; // n-1
     }
 
-    temp->next = initial->next;  // setting nth->next = n+1next;
-    initial->next = temp;   // n-1 = n
+    temp->next = initial->next; // setting nth->next = n+1next;
+    initial->next = temp;       // n-1 = n
 }
 
+void Deletnth(int pos)
+{
+    Node *temp = HEAD;
 
-void Deletnth(int pos){
-    Node *temp=HEAD;
-    
-    if(pos==1){
-        HEAD=temp->next; 
+    if (pos == 1)
+    {
+        HEAD = temp->next;
         delete temp;
         Node::count--;
         return;
     }
 
-    for(int i=0;i<pos-2;i++){
-        temp=temp->next;     //n-1 node
+    for (int i = 0; i < pos - 2; i++)
+    {
+        temp = temp->next; // n-1 node
     }
-        Node::count--;
-    Node *tempnth=temp->next;   //nth node
-    temp->next=tempnth->next;   //n+1 node
+    Node::count--;
+    Node *tempnth = temp->next; // nth node
+    temp->next = tempnth->next; // n+1 node
 
-    delete tempnth; 
+    delete tempnth;
 }
 
+void reverselinklist()
+{
 
-void reverselinklist(){
+    Node *current;
+    Node *prev;
+    Node *Nxt;
+    current = HEAD;
+    prev = NULL;
+    Nxt = NULL;
 
-    Node * current;  
-    Node * prev; 
-    Node * Nxt; 
-    current=HEAD;
-    prev=NULL;
-    Nxt=NULL;
+    while (current != NULL)
+    {
+        Nxt = current->next;
 
-    while(current != NULL){
-        Nxt=current->next;
+        current->next = prev;
 
-        current->next=prev;
+        prev = current;
 
-        prev=current;
-
-        current=Nxt;
-
+        current = Nxt;
     }
-    HEAD=prev;
+    HEAD = prev;
 }
 
-
-
-    
 Node* rev(Node* HeAD, int k,int c) {
     // Write your code here.
     if(HeAD==NULL){
        return NULL;
    }
-   
+
    //reverse first k nodes
    Node*neext=NULL;
    Node*prev=NULL;
    Node*curr=HeAD;
    int count=0;
-   
+
     if(c < k){
         return HeAD;
     }
@@ -167,18 +168,15 @@ Node* rev(Node* HeAD, int k,int c) {
        curr=neext;
        count++;
     }
-   
-   
+
    //recursion
    if(neext!=NULL){
        HeAD->next=rev(neext,k,c-k);
    }
-   
-   
+
    //step 3 return head of rev  list;
    return prev;
 }
-
 
 Node* kReverse(Node* HeAD, int k) {
 
@@ -194,14 +192,47 @@ Node* kReverse(Node* HeAD, int k) {
 }
 
 
+
+Node *removeDuplicates(Node *head)
+{
+    // Write your code her
+    Node * cur=head;
+
+    while(cur!=NULL){
+        Node * temp=cur;
+
+        while(temp!=NULL){
+            if((temp->next!=NULL) && temp->next->data== cur->data){
+                Node*d = temp->next;
+                temp->next=temp->next->next;
+               
+            delete d;
+
+            } 
+            else {
+              temp = temp->next;
+            }
+        }
+
+
+        cur=cur->next;
+
+
+    }
+
+    return head;
+}
+
+
 int main()
 {
     NthInsertion(99, 1);
-    
+
     NthInsertion(90, 2);
     NthInsertion(88, 3);
 
-    NthInsertion(89,4);
+    NthInsertion(89, 4);
+    NthInsertion(89, 5);
 
     // NthInsertion(100, 5);
     // print_linklist();
@@ -211,17 +242,16 @@ int main()
     // Deletnth(Node::count);
     // Deletnth(5);
 
-
-//     recprint(HEAD);
-//   Node*h2 =kReverse(HEAD,2);
-//   //1 2 3 4 5
-//   //2 1 4 3 5
-//    cout<<endl;
+    //     recprint(HEAD);
+    //   Node*h2 =kReverse(HEAD,2);
+    //   //1 2 3 4 5
+    //   //2 1 4 3 5
+    //    cout<<endl;
     recprint(HEAD);
-    reverselinklist();
-    cout<<endl;
-    recprint(HEAD);
+    // reverselinklist();
+    cout << endl;
 
+
+    removeDuplicates(HEAD);
+    recprint(HEAD);
 }
-
-
