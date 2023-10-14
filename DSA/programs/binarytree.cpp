@@ -199,6 +199,15 @@ void nodeWithoutSibling(Node *root){
 }
 
 
+//node insert duplicate
+
+// void insertdupli(){}
+
+// greater than x
+int  greaterthanX(Node* root,int n,int x){
+   
+}
+
 
 int main()
 {
@@ -213,33 +222,37 @@ int main()
     //    Node*neight=new Node(8);
     // Node*nnine=new Node(9);
 
-    // root->left = ntwo;
-    // root->right = nthree;
-    // ntwo->left = nfr;
-    // ntwo->right = nfiv;
-    // nthree->left = nsix;
-    // nthree->right = ntsevn;
-
-      root->left = ntwo;
+    root->left = ntwo;
     root->right = nthree;
-    ntwo->left = NULL;
+    ntwo->left = nfr;
     ntwo->right = nfiv;
     nthree->left = nsix;
-    nthree->right = NULL;
+    nthree->right = ntsevn;
+
+    //   root->left = ntwo;
+    // root->right = nthree;
+    // ntwo->left = NULL;
+    // ntwo->right = nfiv;
+    // nthree->left = nsix;
+    // nthree->right = NULL;
 
 
     // cout<<bth(root);
 
     // cout<<sumofnode(root);
-    printpre(root);
-    cout<<endl;
+    // printpre(root);
+    // cout<<endl;
 
-    nodeWithoutSibling(root);
+cout<<greaterthanX(root,0,3);
+
+    // nodeWithoutSibling(root);
     // replace_with_level(root,1);
     // printpre(root);
 
     // preorder(root);
     cout<<endl;
+
+
 
     // cout<<root->data<<endl;
     // cout<<root->right->data<<endl;
