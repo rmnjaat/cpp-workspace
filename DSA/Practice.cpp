@@ -81,25 +81,26 @@
 
 // }
 
-#include <iostream>
-#include<vector>
-using namespace std;
+// #include <iostream>
+// #include<vector>
+// using namespace std;
 
-int main()
-{
-    int n = 4;
-    int a[n] = {1, 2, 3, 4};
-   int s=0;
-   for(int i=0;i<n;i++){
-    for(int j=i;j<n;j++){
-        int sum=0;
-        for(int k=i;k<=j;k++){
-            sum+=a[k];
-        }
-        (sum>s?s=sum:s=s);
+// int main()
+// {
+//     int n = 4;
+//     int a[n] = {1, 2, 3, 4};
+//    int s=0;
+//    for(int i=0;i<n;i++){
+//     for(int j=i;j<n;j++){
+//         int sum=0;
+//         for(int k=i;k<=j;k++){
+//             sum+=a[k];
+//         }
+//         (sum>s?s=sum:s=s);
 
-    }
-   }
+//     }
+//    }
 
-   cout<<s<<endl;
-}
+//    cout<<s<<endl;
+// }
+
