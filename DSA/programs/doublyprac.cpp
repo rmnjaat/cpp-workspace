@@ -1,3 +1,5 @@
+// doubly linked list
+
 #include <iostream>
 using namespace std;
 
@@ -123,3 +125,4 @@ int main()
     deelete(4);
     print(HEAD);
 }
+
