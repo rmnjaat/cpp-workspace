@@ -58,6 +58,9 @@ using namespace std;
 
 // NEXT greATER ELEMENT  --------------------------------------------------------------------------------
 
-vector<int> nextGreater(vector<int> &arr, int n)
-{
+// vector<int> nextGreater(vector<int> &arr, int n)
+// {
   // Write your code here
+
+
+

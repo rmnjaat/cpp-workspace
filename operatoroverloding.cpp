@@ -5,7 +5,9 @@
 // {
 
 // public:
+    
 //     int den;
+
 //     int num;
 
 //     Frac(int x, int y) : num(x), den(y){};
@@ -82,6 +84,9 @@
 //     // fNew.simplify();
 //     // return fNew;
 //     }*/
+
+
+
 // };
 
 
@@ -94,18 +99,19 @@
 //     cin >> x >> y;
 //     Frac f2(x, y);
 //     // f1=f1+f2;
-
+    
 //     // f1.print();
 //     // f1.simplfy();
 //     // f1.print();
 
-//     int r = f1 == f2;
-//     (r == 0) ? cout << "False" : cout << "True";
+//     // int r = f1 == f2;
+//     // (r == 0) ? cout << "False" : cout << "True";
 // }
 
 
 
-// //-------------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------------
+
 #include <iostream>
 using namespace std;
 
@@ -166,14 +172,6 @@ public:
         return fNew;
     }
 
-    // Fraction multiply(Fraction const &f2) {
-    // numerator = numerator * f2.numerator;
-    // denominator = denominator * f2.denominator;
-
-    // Fraction fNew(numerator, denominator);
-    // fNew.simplify();
-    // return fNew;
-    // }
     Fraction operator*(Fraction const &f2)
     {
         numerator = numerator * f2.numerator;

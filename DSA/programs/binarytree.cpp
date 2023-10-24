@@ -31,6 +31,7 @@ void printpre(Node *root)
     printpre(root->left);
 
     printpre(root->right);
+    
 }
 
 void printpost(Node *root)
@@ -82,19 +83,6 @@ Node *takeinp()
 
 
 
-// Node * levelinp(){
-//     int rd;
-//     cin>>rd;
-
-//     if(rd==-1){
-//         return NULL;
-//     }
-
-//     Node * r = new Node(rd);
-//     queue<Node* > pn;
-//     pn.push(r);
-    
-// }
 
 
 void Mirrorbt(Node * root){
@@ -112,6 +100,7 @@ void Mirrorbt(Node * root){
     Mirrorbt(root->right);
 
 }
+
 
 //height
 int bth(Node * root){
@@ -133,9 +122,7 @@ int sumofnode(Node *root)
     {
         return 0;
     }
-
     return (root->data)+sumofnode(root->left)+sumofnode(root->right);
-
 }
 
 
@@ -152,11 +139,8 @@ void replacedepth(Node * root,int n){
 int replace_with_height(Node* root){
 
     if(!root){
-
         return 0;
-
     }
-
     int lh=replace_with_height(root->left);
 
     int rh=replace_with_height(root->right);
@@ -166,6 +150,7 @@ int replace_with_height(Node* root){
     root->data=h;
 
     return h;
+
 }
 
 
@@ -204,9 +189,7 @@ void nodeWithoutSibling(Node *root){
 // void insertdupli(){}
 
 // greater than x
-int  greaterthanX(Node* root,int n,int x){
-   
-}
+
 
 
 int main()
@@ -243,7 +226,7 @@ int main()
     // printpre(root);
     // cout<<endl;
 
-cout<<greaterthanX(root,0,3);
+
 
     // nodeWithoutSibling(root);
     // replace_with_level(root,1);

@@ -125,3 +125,43 @@ int main(){
 
 //    return mergedHead;  // Return the new, merged linked list
 // }   
+
+
+
+// #include<iostream>
+// #include<vector>
+// #include<bits/stdc++.h>
+// using namespace std;
+
+// int main(){
+
+//      vector<vector<int>> v;
+
+//      for(int i=0;i<3;i++){
+//         vector<int>  v1;
+//         for(int j=0;j<2;j++){
+//           int d;
+//           cin>>d;
+//           v1.push_back(d);
+//         }
+
+//         v.push_back(v1);
+//      }
+
+
+//      for(int i=0;i<v.size();i++){
+//         for(int j=0;j<v[i].size();j++){
+//             cout<<v[i][j]<<" ";
+//         }
+//         cout<<endl;
+//      }
+
+//      sort(v.begin(),v.end());
+
+//      for(int i=0;i<v.size();i++){
+//         for(int j=0;j<v[i].size();j++){
+//             cout<<v[i][j]<<" ";
+//         }
+//         cout<<endl;
+//      }
+// }

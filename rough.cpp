@@ -45,13 +45,3 @@
 //     return 0;
 // }
 
-
-#include<iostream>
-using namespace std;
-
-int main(){
-
-    for(int i{};i<1;i++){
-        cout<<"HII"<<endl;
-    }
-}
