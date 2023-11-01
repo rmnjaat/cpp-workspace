@@ -7,7 +7,7 @@
 // Define the structure
 struct student
 {
-    // char name[50];
+    char  n;
     int gift_number;
 };
 
@@ -27,25 +27,47 @@ void sortstu_arrByGiftNumber(struct student *stu_arr, int num_student)
 
 int main()
 {
+
+	
+	printf("\n Note : gitfs are allocated to student randomly using random fn\n"); 
     // Define an array of stu_arr
-    int num_student = 3;
+    int num_student = 10;
     struct student stu_arr[num_student];
+    //for inserting random gift quantity
     srand(time(NULL));
+    //input
     for (int i = 0; i < num_student; i++)
     {
+        
+        stu_arr[i].n='a'+i;
         stu_arr[i].gift_number = rand() % 100;
     }
 
+  printf("\nPrinting Students and their gift quantity \n");
+ 	for (int i = 0; i < num_student; i++)
+    {
+
+        printf("%c\t\t%d\n", stu_arr[i].n, stu_arr[i].gift_number);
+        printf("\n");
+    }
+    
     // Sort the array based on "gift_number"
     sortstu_arrByGiftNumber(stu_arr, num_student);
+    
+  
+   
 
-    printf("Printing result according to their priority \n");
+    printf("\n\n * Less Priority number is equivalent to HIGH PRIORITY *\n\n");
+    printf("Printing student according to their priority on Billing counter :\n\n");
     // Print the sorted list of stu_arr
+        printf("Priority No.\t Student Name\tNumber of gifts\n\n");
     for (int i = 0; i < num_student; i++)
     {
 
-        printf("Name: P%d , Gift Number: %d\n", i + 1, stu_arr[i].gift_number);
+        printf(" %d\t\t\t%c\t\t%d\n", i + 1,stu_arr[i].n, stu_arr[i].gift_number);
+        printf("\n");
     }
 
     return 0;
 }
+
