@@ -220,7 +220,7 @@ int main()
     // nthree->right = NULL;
 
 
-    // cout<<bth(root);
+    cout<<bth(root);
 
     // cout<<sumofnode(root);
     // printpre(root);
