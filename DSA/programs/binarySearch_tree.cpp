@@ -173,6 +173,86 @@ bool checkbst(Node *temp)
     }
 }
 
+Node * FindMin(Node * temp){
+  while(temp->left!=NULL){
+    temp=temp->left;
+  }
+  return temp;
+
+}
+Node * Delete(Node * temp,int x){
+    if(temp==NULL) return temp;
+    else if(temp->data > x) root->left=Delete(temp->left,x);
+    else if(temp->data < x) root->right= Delete(temp->right,x);
+
+    else{
+        //no child 
+        if(temp->left==NULL && temp->right == NULL){
+            delete temp;
+            temp=NULL;
+            
+        }
+
+        //1 child
+        else if(temp->left==NULL){
+            Node * t=temp;
+
+            temp=temp->right;
+
+            delete t;
+
+            
+        }
+
+        else if(temp->right==NULL){
+            Node * t=temp;
+
+            temp=temp->left;
+
+            delete t;
+            
+            
+        }
+
+        else{
+            Node * t=FindMin(root->right);
+            temp->data = t->data;
+            temp->right = Delete(temp->right,temp->data);
+        }
+
+    }
+
+    return temp;
+
+}
+
+
+Node * sucesser(Node * root,int data){
+    Node * curr = search(root,data);
+    if(curr==NULL)  return NULL;
+    if(curr->right!=NULL){
+      FindMin(root->right);
+    }
+
+
+    else {
+            Node * succeser =NULL;
+            Node * ancester = root;
+            while(ancester!=NULL){
+                if(curr->data < ancester->data){
+                    succeser= ancester;
+                    ancester=ancester->left;
+                }
+                else{
+                    ancester=ancester->right;
+                }
+            }
+
+    return sucesser;
+    }
+
+}
+
 int main()
 {
 
@@ -184,18 +264,22 @@ int main()
     insert(root, 11);
     insert(root, 13);
 
-    // print(root);
+    print(root);
 
     cout << endl;
 
     // cout<<search(root,12);
+    Delete(root,9);
 
     cout << endl;
+    print(root); 
 
     // cout<<height(root);
     // cout<<depth(root,0);
 
     // levelprint(root);
-    cout << checkbst(root);
+    // cout << checkbst(root);
     cout << endl;
+
+
 }
