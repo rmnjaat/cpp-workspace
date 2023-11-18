@@ -213,11 +213,8 @@ Node *removeDuplicates(Node *head)
               temp = temp->next;
             }
         }
-
-
+        
         cur=cur->next;
-
-
     }
 
     return head;

@@ -11,7 +11,6 @@ public:
 
     Node(int x)
     {
-
         data = x;
         left = NULL;
         right = NULL;
@@ -122,7 +121,7 @@ void levelprint(Node *temp)
     }
 }
 
-
+//bstreecheck
 bool lst(Node *temp, int x)
 {
     if (temp == NULL)
@@ -187,7 +186,7 @@ Node * Delete(Node * temp,int x){
 
     else{
         //no child 
-        if(temp->left==NULL && temp->right == NULL){
+        if( temp->left==NULL && temp->right == NULL ){
             delete temp;
             temp=NULL;
             
@@ -214,6 +213,8 @@ Node * Delete(Node * temp,int x){
             
         }
 
+        // 2 child
+        
         else{
             Node * t=FindMin(root->right);
             temp->data = t->data;
