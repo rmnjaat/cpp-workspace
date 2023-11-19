@@ -181,8 +181,8 @@ Node * FindMin(Node * temp){
 }
 Node * Delete(Node * temp,int x){
     if(temp==NULL) return temp;
-    else if(temp->data > x) root->left=Delete(temp->left,x);
-    else if(temp->data < x) root->right= Delete(temp->right,x);
+    else if(temp->data > x) root->left = Delete(temp->left,x);
+    else if(temp->data < x) root->right = Delete(temp->right,x);
 
     else{
         //no child 
@@ -214,7 +214,7 @@ Node * Delete(Node * temp,int x){
         }
 
         // 2 child
-        
+
         else{
             Node * t=FindMin(root->right);
             temp->data = t->data;
